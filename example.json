@@ -1,0 +1,19 @@
+[
+	{
+		"name":"Greater Manchester Central Accounts and Enforcement Unit",
+		"address":{
+			"town":"Manchester",
+			"address_lines":["P.O. Box 4372"],
+			"type":"Postal",
+			"postcode":"M61 0EQ",
+			"county":"Greater Manchester"
+		},
+		"lat":53.4801223269455,
+		"lon":-2.25220115628168,
+		"number":null,
+		"types":[],
+		"areas_of_law":[],
+		"slug":"greater-manchester-central-accounts-and-enforcement-unit"
+	}
+]
+
