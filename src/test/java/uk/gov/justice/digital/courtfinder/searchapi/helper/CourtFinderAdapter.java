@@ -4,6 +4,7 @@ import javax.naming.PartialResultException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.omg.stub.java.rmi._Remote_Stub;
 
 import uk.gov.justice.digital.courtfinder.searchapi.factories.FakeDataFactory;
 
@@ -24,7 +25,10 @@ public class CourtFinderAdapter {
 		String stringResponse = restfulRequest._GETRequest(baseUrl);
 		System.out.println("\n\n\n");
 		System.out.println("BaseURL: "+ FakeDataFactory.getBaseUrl());
-		System.out.println("\n\n");
+		System.out.println("Request: " + restfulRequest.getURL());
+		System.out.println("\n");
+		System.out.println("Response Code: " + restfulRequest.getResponseCode());
+		System.out.println("Response:");
 		System.out.println(stringResponse);
 		System.out.println("\n\n\n");
 		root = new JSONArray(stringResponse);

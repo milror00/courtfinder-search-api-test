@@ -33,6 +33,12 @@ public class CourtFinderSearchAPISteps {
 		adapter.addParameter("aol", aol);
 	    adapter._GETRequest("search/results.json");
 	}
+	
+	@When("^I search name or address \"(.*?)\" of a court$")
+	public void i_search_name_or_address_of_a_court(String nameOrAddress) throws Throwable {
+		adapter.addParameter("q", nameOrAddress);
+	    adapter._GETRequest("search/results.json");
+	}
 
 	@Then("^the court details will be:$")
 	public void the_court_details_will_be(List<List<String>> courtValuesToVerify) throws Throwable {

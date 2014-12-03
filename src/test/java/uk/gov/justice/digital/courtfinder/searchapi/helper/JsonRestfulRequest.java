@@ -24,6 +24,7 @@ public class JsonRestfulRequest {
 	private List<String> _parameters = new ArrayList<String>();
 	private int _responseCode = 0;
 	private String _baseUrl = "";
+	private String _Url = "";
 	
 	public int getResponseCode(){
 		return _responseCode;
@@ -51,9 +52,9 @@ public class JsonRestfulRequest {
 	public String _GETRequest(String command){
 		String output = "";
 		try {
-			System.out.println(getURL(command));
+			  _Url = getURL(command);
 			
-			URL url = new URL(getURL(command));
+			URL url = new URL(_Url);
 			
 			SSLContext sc = SSLContext.getInstance("TLS");
 			sc.init(null, new TrustManager[] { new TrustAllX509TrustManager() }, new java.security.SecureRandom());
@@ -100,6 +101,11 @@ public class JsonRestfulRequest {
 		}
 		_parameters.clear();
 		return output;
+	}
+
+	public String getURL() {
+		// TODO Auto-generated method stub
+		return _Url;
 	}
 	
 

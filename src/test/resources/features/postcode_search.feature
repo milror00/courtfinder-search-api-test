@@ -1,11 +1,11 @@
-@todo
+
 Feature: As a civilian I need to enter my postcode to find the closest court dealing with adoption so I can send in my application
 
 Background:
           
           Given I am using the courtfinder api 
 
-Scenario:  Search by postcode and locate my closest court
+Scenario:  Search by postcode and locate my closest courts for Adoption
 
 
          When I search by postcode "sg80lt" and area of law "Adoption"   
@@ -25,7 +25,7 @@ Scenario:  Search by postcode and locate my closest court
          |[1].lat                     |52.5700659339344                                        |double|
          |[1].lon                     |-0.240219616751609                                      |double|  
          
-Scenario:  Search by postcode and locate my closest court
+Scenario:  Search by postcode and locate my closest court for Children
 
 
          When I search by postcode "cm233fe" and area of law "Children"   
@@ -37,4 +37,6 @@ Scenario:  Search by postcode and locate my closest court
          |[0].address.address_lines[0]|Watford County Court and Family Court Hearing Centre    |string|
          |[0].address.address_lines[1]|3rd Floor                                               |string|
          |[0].lat                     |51.663675400498                                         |double|
-         |[0].lon                     |-0.398796389317627                                      |double|           
+         |[0].lon                     |-0.398796389317627                                      |double|       
+         
+    
