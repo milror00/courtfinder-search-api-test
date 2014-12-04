@@ -10,7 +10,6 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-import java.net.URLEncoder;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -18,71 +17,72 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 
-
 public class JsonRestfulRequest {
-	
+
 	private List<String> _parameters = new ArrayList<String>();
 	private int _responseCode = 0;
 	private String _baseUrl = "";
 	private String _Url = "";
-	
-	public int getResponseCode(){
+
+	public int getResponseCode() {
 		return _responseCode;
 	}
-	
-	public void setBaseUrl(String url){
+
+	public void setBaseUrl(String url) {
 		_baseUrl = url;
 	}
-	
-	public void addParameter(String parameter, String parameterValue){
-		_parameters.add(String.format("%s=%s",parameter,parameterValue));
+
+	public void addParameter(String parameter, String parameterValue) {
+		_parameters.add(String.format("%s=%s", parameter, parameterValue));
 	}
-	
-	private String getURL(String command) throws MalformedURLException{
+
+	private String getURL(String command) throws MalformedURLException {
 		String parameterString = "";
-		for(int index = 0; index < _parameters.size(); index++){
+		for (int index = 0; index < _parameters.size(); index++) {
 			if (index == 0)
-				parameterString = parameterString + _parameters.get(index).replace(" ", "+");
+				parameterString = parameterString
+						+ _parameters.get(index).replace(" ", "+");
 			else
-			    parameterString = parameterString +"&"+ _parameters.get(index).replace(" ", "+");
+				parameterString = parameterString + "&"
+						+ _parameters.get(index).replace(" ", "+");
 		}
-		return _baseUrl+command+"?"+parameterString;
+		return _baseUrl + command + "?" + parameterString;
 	}
-	
-	public String _GETRequest(String command){
+
+	public String _GETRequest(String command) {
 		String output = "";
 		try {
-			  _Url = getURL(command);
-			
+			_Url = getURL(command);
+
 			URL url = new URL(_Url);
-			
+
 			SSLContext sc = SSLContext.getInstance("TLS");
-			sc.init(null, new TrustManager[] { new TrustAllX509TrustManager() }, new java.security.SecureRandom());
-			HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-			HttpsURLConnection.setDefaultHostnameVerifier( new HostnameVerifier(){
-			    public boolean verify(String string,SSLSession ssls) {
-			        return true;
-			    }
-			});
+			sc.init(null,
+					new TrustManager[] { new TrustAllX509TrustManager() },
+					new java.security.SecureRandom());
+			HttpsURLConnection
+					.setDefaultSSLSocketFactory(sc.getSocketFactory());
+			HttpsURLConnection
+					.setDefaultHostnameVerifier(new HostnameVerifier() {
+						public boolean verify(String string, SSLSession ssls) {
+							return true;
+						}
+					});
 			HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
-            conn.toString();
-            _responseCode = conn.getResponseCode();
-			if (conn.getResponseCode() != 200){
-				System.out.println("Throwing Error: conn.getResponseCode()");
-				throw new RuntimeException("Failed : HTTP error code : "
-						+ conn.getResponseCode() + " -- "
-						+ conn.getURL().toString());
-			}
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					(conn.getInputStream())));
-			String readResult;
-			while ((readResult = br.readLine()) != null) {
-				output = output + readResult;
+			conn.toString();
+			_responseCode = conn.getResponseCode();
+			if (conn.getResponseCode() == 200) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(
+						(conn.getInputStream())));
+				String readResult;
+				while ((readResult = br.readLine()) != null) {
+					output = output + readResult;
+				}
 			}
 			conn.disconnect();
-			
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,10 +104,7 @@ public class JsonRestfulRequest {
 	}
 
 	public String getURL() {
-		// TODO Auto-generated method stub
 		return _Url;
 	}
-	
-
 
 }

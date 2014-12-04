@@ -39,4 +39,14 @@ Scenario:  Search by postcode and locate my closest court for Children
          |[0].lat                     |51.663675400498                                         |double|
          |[0].lon                     |-0.398796389317627                                      |double|       
          
-    
+
+Scenario:  Search by invalid postcode
+
+         When I search by postcode "zzzzzz" and area of law "Children"   
+         Then the a response code is 500  
+         
+
+Scenario:  Search by invalid postcode
+
+         When I search by postcode "BT81" and area of law "Adoption"   
+         Then the number of courts returned will be 0  

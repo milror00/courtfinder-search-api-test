@@ -62,7 +62,21 @@ public class CourtFinderSearchAPISteps {
 				   actualNumberOfCourts == numberOfCourts);
 
 	}
+	
+	@Then("^the value for the response path \"(.*?)\" of \"(.*?)\" is \"(.*?)\"$")
+	public void the_value_for_the_response_path_of_is(String path, String type, String expectedValue) throws Throwable {
+		String actualValue = adapter.getResponseValue(path, type);
+		assertTrue(String.format("Incorrect value for path : %s\nExpected Value: %s\nActual Value: %s",
+				               path,expectedValue,actualValue),actualValue.equalsIgnoreCase(expectedValue));
+	}
 
+	@Then("^the a response code is (\\d+)$")
+	public void the_a_response_code_is(int expectedResponseCode) throws Throwable {
+		int actualResponseCode = adapter.getResponseCode();
+		assertTrue(String.format("Incorrect response code :\nExpected Value: %s\nActual Value: %s",
+				expectedResponseCode,actualResponseCode),(actualResponseCode == expectedResponseCode));
+
+	}
 
 
 }

@@ -31,7 +31,10 @@ public class CourtFinderAdapter {
 		System.out.println("Response:");
 		System.out.println(stringResponse);
 		System.out.println("\n\n\n");
-		root = new JSONArray(stringResponse);
+		if (restfulRequest.getResponseCode() == 200)
+		    root = new JSONArray(stringResponse);
+		else
+			root = null;
 	}
 	
 	private String extractFromArrayToDouble(JSONObject source, String path) 
@@ -97,6 +100,11 @@ public class CourtFinderAdapter {
 
 	public void setBaseUrl(String url) {
 		restfulRequest.setBaseUrl(url);
+	}
+
+	public int getResponseCode() {
+		// TODO Auto-generated method stub
+		return restfulRequest.getResponseCode();
 	}
 
 }
