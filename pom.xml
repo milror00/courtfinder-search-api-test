@@ -10,6 +10,8 @@
 		<info.cukes.version>1.2.6</info.cukes.version>
 		<junit.version>4.11</junit.version>
 		<org.picocontainer.version>2.15</org.picocontainer.version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 	<build>
 		<plugins>
