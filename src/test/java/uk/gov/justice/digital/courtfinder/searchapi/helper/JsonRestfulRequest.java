@@ -40,65 +40,41 @@ public class JsonRestfulRequest {
 		String parameterString = "";
 		for (int index = 0; index < _parameters.size(); index++) {
 			if (index == 0)
-				parameterString = parameterString
-						+ _parameters.get(index).replace(" ", "+");
+				parameterString = parameterString + _parameters.get(index).replace(" ", "+");
 			else
-				parameterString = parameterString + "&"
-						+ _parameters.get(index).replace(" ", "+");
+				parameterString = parameterString + "&" + _parameters.get(index).replace(" ", "+");
 		}
 		return _baseUrl + command + "?" + parameterString;
 	}
 
-	public String _GETRequest(String command) {
+	public String _GETRequest(String command) throws Exception {
 		String output = "";
-		try {
-			_Url = getURL(command);
 
-			URL url = new URL(_Url);
+		_Url = getURL(command);
 
-			SSLContext sc = SSLContext.getInstance("TLS");
-			sc.init(null,
-					new TrustManager[] { new TrustAllX509TrustManager() },
-					new java.security.SecureRandom());
-			HttpsURLConnection
-					.setDefaultSSLSocketFactory(sc.getSocketFactory());
-			HttpsURLConnection
-					.setDefaultHostnameVerifier(new HostnameVerifier() {
-						public boolean verify(String string, SSLSession ssls) {
-							return true;
-						}
-					});
-			HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Accept", "application/json");
-			conn.toString();
-			_responseCode = conn.getResponseCode();
-			if (conn.getResponseCode() == 200) {
-				BufferedReader br = new BufferedReader(new InputStreamReader(
-						(conn.getInputStream())));
-				String readResult;
-				while ((readResult = br.readLine()) != null) {
-					output = output + readResult;
-				}
+		URL url = new URL(_Url);
+
+		SSLContext sc = SSLContext.getInstance("TLS");
+		sc.init(null, new TrustManager[] { new TrustAllX509TrustManager() }, new java.security.SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+			public boolean verify(String string, SSLSession ssls) {
+				return true;
 			}
-			conn.disconnect();
-
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (KeyManagementException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		});
+		HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Accept", "application/json");
+		conn.toString();
+		_responseCode = conn.getResponseCode();
+		if (conn.getResponseCode() == 200) {
+			BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+			String readResult;
+			while ((readResult = br.readLine()) != null) {
+				output = output + readResult;
+			}
 		}
+		conn.disconnect();
 		_parameters.clear();
 		return output;
 	}

@@ -19,12 +19,11 @@ public class CourtFinderAdapter {
 		restfulRequest.addParameter(parameter, parameterValue);
 	}
 
-	public void _GETRequest(String baseUrl) {
+	public void _GETRequest(String baseUrl) throws Exception {
 		String stringResponse = restfulRequest._GETRequest(baseUrl);
 		System.out.println("\n\n\n");
 		System.out.println("BaseURL: "+ FakeDataFactory.getBaseUrl());
 		System.out.println("Request: " + restfulRequest.getURL());
-		System.out.println("\n");
 		System.out.println("Response Code: " + restfulRequest.getResponseCode());
 		System.out.println("Response:");
 		System.out.println(stringResponse);
