@@ -1,0 +1,243 @@
+[
+	{
+		"name": "Durham County Court and Family Court",
+		"lat": 54.7727315495169,
+		"lon": -1.56943151528041,
+		"number": null,
+		"cci_code": 190,
+		"magistrate_code": null,
+		"slug": "durham-county-court-and-family-court",
+		"types": [
+			"County Court",
+			"Family Court"
+		],
+		"address": {
+			"address_lines": [
+				"Durham Justice Centre\r",
+				"Green Lane\r",
+				"Old Elvet"
+			],
+			"postcode": "DH1 3RG",
+			"town": "Durham",
+			"type": "Visit us or write to us"
+		},
+		"areas_of_law": [
+			{
+				"name": "Adoption",
+				"external_link": "https%3A//www.gov.uk/child-adoption",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Adoption>>",
+				"external_link_desc": "Information about adopting a child"
+			},
+			{
+				"name": "Bankruptcy",
+				"external_link": "https%3A//www.gov.uk/apply-for-bankruptcy",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Bankruptcy>>",
+				"external_link_desc": "Information about applying for bankruptcy"
+			},
+			{
+				"name": "Children",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Children>>",
+				"external_link_desc": null
+			},
+			{
+				"name": "Divorce hearings",
+				"external_link": "https%3A//www.gov.uk/divorce",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Divorce>>",
+				"external_link_desc": "Information about getting a divorce"
+			},
+			{
+				"name": "Domestic violence",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Domestic violence>>",
+				"external_link_desc": null
+			},
+			{
+				"name": "High Court District Registry",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: High Court District Registry>>",
+				"external_link_desc": null
+			},
+			{
+				"name": "Housing possession",
+				"external_link": "https%3A//www.gov.uk/evicting-tenants",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Housing possession>>",
+				"external_link_desc": "Information about evicting tenants"
+			},
+			{
+				"name": "Money claims",
+				"external_link": "https%3A//www.gov.uk/make-court-claim-for-money",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Money claims>>",
+				"external_link_desc": "Information about making a court claim for money"
+			},
+			{
+				"name": "Social security",
+				"external_link": "https%3A//www.gov.uk/tribunal/sscs",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Social security>>",
+				"external_link_desc": "Information about the Social Security and Child Support Tribunal"
+			}
+		],
+		"displayed": true,
+		"hide_aols": false,
+		"dx_number": "65115 Durham 5"
+	},
+	{
+		"name": "Cleveland, Durham and Northumbria Regional Divorce Centre",
+		"lat": null,
+		"lon": null,
+		"number": null,
+		"cci_code": null,
+		"magistrate_code": null,
+		"slug": "durham-regional-divorce-centre",
+		"types": [
+			"Family Court"
+		],
+		"address": {
+			"address_lines": [
+				"Durham Civil and Family Justice Centre",
+				"Green Lane",
+				"Old Elvet",
+				"Co. Durham"
+			],
+			"postcode": "DH1 3RG",
+			"town": "Durham",
+			"type": "Postal"
+		},
+		"areas_of_law": [
+			{
+				"name": "Civil partnership",
+				"external_link": "https%3A//www.gov.uk/end-civil-partnership",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Civil partnership>>",
+				"external_link_desc": "Information about ending a civil partnership"
+			},
+			{
+				"name": "Divorce hearings",
+				"external_link": "https%3A//www.gov.uk/divorce",
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Divorce>>",
+				"external_link_desc": "Information about getting a divorce"
+			}
+		],
+		"displayed": false,
+		"hide_aols": false
+	},
+	{
+		"name": "Durham Crown Court",
+		"lat": 54.7740831141334,
+		"lon": -1.56790929232945,
+		"number": 422,
+		"cci_code": null,
+		"magistrate_code": null,
+		"slug": "durham-crown-court",
+		"types": [
+			"Crown Court"
+		],
+		"address": {
+			"address_lines": [
+				"The Law Courts\r",
+				"Old Elvet"
+			],
+			"postcode": "DH1 3HW",
+			"town": "Durham",
+			"type": "Visit us or write to us"
+		},
+		"areas_of_law": [
+			{
+				"name": "Crime",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Crime>>",
+				"external_link_desc": null
+			}
+		],
+		"displayed": true,
+		"hide_aols": false,
+		"dx_number": "65112 Durham 4"
+	},
+	{
+		"name": "Durham Magistrates' Court",
+		"lat": 54.7740831141334,
+		"lon": -1.56790929232945,
+		"number": 1579,
+		"cci_code": null,
+		"magistrate_code": null,
+		"slug": "durham-magistrates-court",
+		"types": [
+			"Magistrates' Court"
+		],
+		"address": {
+			"address_lines": [
+				"Newcastle Road"
+			],
+			"postcode": "DH3 3UA",
+			"town": "Chester-le-Street",
+			"type": "Postal"
+		},
+		"areas_of_law": [
+			{
+				"name": "Crime",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Crime>>",
+				"external_link_desc": null
+			}
+		],
+		"displayed": false,
+		"hide_aols": false,
+		"dx_number": "721663 Chester-le-Street 2"
+	},
+	{
+		"name": "Cleveland, Durham, Northumbria and North Yorkshire Central Enforcement Unit",
+		"lat": null,
+		"lon": null,
+		"number": null,
+		"cci_code": null,
+		"magistrate_code": null,
+		"slug": "cleveland-durham-northumbria-and-north-yorkshire-central-enforcement-unit",
+		"types": [
+		],
+		"address": {
+			"address_lines": [
+				"PO Box 826"
+			],
+			"postcode": "NE29 1DZ",
+			"town": "North Shields",
+			"type": "Postal"
+		},
+		"areas_of_law": [
+		],
+		"displayed": true,
+		"hide_aols": false,
+		"dx_number": "65137 North Shields 2"
+	},
+	{
+		"name": "Peterlee Magistrates' Court",
+		"lat": 54.7557955234905,
+		"lon": -1.3369105652739,
+		"number": null,
+		"cci_code": null,
+		"magistrate_code": 1585,
+		"slug": "peterlee-magistrates-court",
+		"types": [
+			"Magistrates' Court"
+		],
+		"address": {
+			"address_lines": [
+				"Central Avenue",
+				"Newton Aycliffe",
+				"Co. Durham"
+			],
+			"postcode": "DL5 5RT",
+			"town": "Newton Aycliffe",
+			"type": "Postal"
+		},
+		"areas_of_law": [
+			{
+				"name": "Crime",
+				"external_link": null,
+				"display_url": "<bound method AreaOfLaw.display_url of <AreaOfLaw: Crime>>",
+				"external_link_desc": null
+			}
+		],
+		"displayed": true,
+		"hide_aols": false,
+		"dx_number": "63808 Newton Aycliffe"
+	}
+]

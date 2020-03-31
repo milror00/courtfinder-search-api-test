@@ -1,10 +1,8 @@
 package uk.gov.justice.digital.courtfinder.searchapi.helper;
 
-import javax.naming.PartialResultException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.omg.stub.java.rmi._Remote_Stub;
 
 import uk.gov.justice.digital.courtfinder.searchapi.factories.FakeDataFactory;
 
