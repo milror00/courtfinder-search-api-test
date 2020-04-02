@@ -21,20 +21,18 @@ public class CourtFinderSearchAPISteps {
 		adapter = new CourtFinderAdapter(request);
 	}
 	
-	@Given("^I am using the courtfinder api$")
-	public void i_am_using_the_courtfinder_api() throws Throwable {
-	    adapter.setBaseUrl(FakeDataFactory.getBaseUrl());
-	}
 
-	@When("^I search by postcode \"(.*?)\" and area of law \"(.*?)\"$")
+	@Given("^I search by postcode \"(.*?)\" and area of law \"(.*?)\"$")
 	public void i_search_by_postcode_and_area_of_law(String postcode, String aol) throws Throwable {
+	    adapter.setBaseUrl(FakeDataFactory.getBaseUrl());
 		adapter.addParameter("postcode", postcode);
 		adapter.addParameter("aol", aol);
 	    adapter._GETRequest("search/results.json");
 	}
 	
-	@When("^I search name or address \"(.*?)\" of a court$")
+	@Given("^I search name or address \"(.*?)\" of a court$")
 	public void i_search_name_or_address_of_a_court(String nameOrAddress) throws Throwable {
+	    adapter.setBaseUrl(FakeDataFactory.getBaseUrl());
 		adapter.addParameter("q", nameOrAddress);
 	    adapter._GETRequest("search/results.json");
 	}

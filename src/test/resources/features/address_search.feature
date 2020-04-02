@@ -1,18 +1,14 @@
-@done  
+@done 
 Feature: Search by address or name of a court
-
-
-Background:
-          
-          Given I am using the courtfinder api 
 
 
 Scenario:  Search by name of court
 
 
-         When I search name or address "Central Criminal Court" of a court  
-         Then the number of courts returned will be 1  
-         Then the court details will be:
+         Given I search name or address "Central Criminal Court" of a court  
+         Then the response code is 200
+         And the number of courts returned will be 1  
+         And the court details will be:
          |path                        |value                                                    |type  |
          |[0].name                    |Central Criminal Court                                   |string|
          |[0].address.town            |London                                                   |string|
@@ -23,8 +19,9 @@ Scenario:  Search by name of court
       
 Scenario Outline: Complete court name returns individual court entry in the results page
 
-         When I search name or address "<courtname>" of a court  
-         Then the number of courts returned will be 1
+         Given I search name or address "<courtname>" of a court  
+         Then the response code is 200
+         And the number of courts returned will be 1
          And the value for the response path "<path>" of "<type>" is "<courtname>"
          Examples:     
          |courtname                         |type  |path        |
@@ -37,8 +34,9 @@ Scenario Outline: Complete court name returns individual court entry in the resu
             
 Scenario: Sort order will be venue,town,street,county - sub sort is on areas of law
 
-         When I search name or address "Derby" of a court  
-         Then the court details will be:
+         Given I search name or address "Derby" of a court 
+         Then the response code is 200 
+         And the court details will be:
          |path                        |court                                                   |type  |
          |[0].name                    |Derby Combined Court Centre                             |string|
          |[1].name                    |Derby Magistrates' Court                                |string|
@@ -47,8 +45,9 @@ Scenario: Sort order will be venue,town,street,county - sub sort is on areas of 
                     
 Scenario: Sort order will be venue,town,street,county - sub sort is on areas of law
 
-         When I search name or address "Durham" of a court  
-         Then the court details will be:
+         Given I search name or address "Durham" of a court  
+         Then the response code is 200
+         And the court details will be:
          |path                        |court                                                                       |type  |
          |[0].name                    |Durham County Court and Family Court                                        |string|
          |[1].name                    |Cleveland, Durham and Northumbria Regional Divorce Centre                  |string|                           

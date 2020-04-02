@@ -1,17 +1,14 @@
 @done  
-Feature: As a civilian I need to enter my postcode to find the closest court dealing with adoption so I can send in my application
-
-Background:
-          
-          Given I am using the courtfinder api 
+Feature: As a civilian I need to enter my postcode to find the closest court dealing with adoption so I can send in my application 
 
  
 Scenario:  Search by postcode and locate my closest courts for Adoption
 
 
-         When I search by postcode "sg80lt" and area of law "Adoption"   
-         Then the number of courts returned will be 1   
-         Then the court details will be:
+         Given I search by postcode "sg80lt" and area of law "Adoption"  
+         Then the response code is 200
+         And number of courts returned will be 1   
+         And the court details will be:
          |path                        |value                                                   |type  |
          |[0].name                    |Peterborough Combined Court Centre                      |string|
          |[0].address.town            |Peterborough                                            |string|
@@ -24,9 +21,10 @@ Scenario:  Search by postcode and locate my closest courts for Adoption
 Scenario:  Search by postcode and locate my closest court for Children
 
 
-         When I search by postcode "cm233fe" and area of law "Children"   
-         Then the number of courts returned will be 1   
-         Then the court details will be:
+         Given I search by postcode "cm233fe" and area of law "Children"   
+         Then the response code is 200
+         And the number of courts returned will be 1   
+         And the court details will be:
          |path                        |value                                                   |type  |
          |[0].name                    |Watford County Court and Family Court                   |string|
          |[0].address.town            |Watford                                                 |string|
@@ -38,7 +36,7 @@ Scenario:  Search by postcode and locate my closest court for Children
 
 Scenario:  Search by invalid postcode
 
-         When I search by postcode "zzzzzz" and area of law "Children"   
+         Given I search by postcode "zzzzzz" and area of law "Children"   
          Then the a response code is 400  
          
  
