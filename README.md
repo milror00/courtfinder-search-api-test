@@ -1,4 +1,4 @@
-# Courtfinder Searc AP Tests
+# Courtfinder Search API Tests
 
 This is an example project showing how to do an api test scenario using native java hhtp libraries.
 
