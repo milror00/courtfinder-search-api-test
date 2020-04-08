@@ -41,18 +41,15 @@ public class CourtFinderAdapter {
 	
 	private String extractFromArrayToString(JSONArray source, String path)
 	{
-		System.out.println("extractFromArrayToString: " + path);
 		return source.getSpecialString(path);
 	}
 
 	private JSONObject extractFromArray(JSONObject source, String path) 
 	{
-		System.out.println("extractFromArray: " + path);
 		return source.getSpecialJSONObject(path);
 	}
 
 	private JSONObject extractFromAnnoymousArray(String path) {
-		System.out.println("extractFromAnnoymousArray: " + path);
 		return root.getSpecialJSONObject(path);
 	}
 
