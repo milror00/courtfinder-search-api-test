@@ -1,8 +1,8 @@
 package uk.gov.justice.digital.courtfinder.searchapi.helper;
 
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.urbangraphicstudio.json.JSONArray;
+import com.urbangraphicstudio.json.JSONObject;
 
 import uk.gov.justice.digital.courtfinder.searchapi.factories.FakeDataFactory;
 
@@ -34,61 +34,35 @@ public class CourtFinderAdapter {
 			root = null;
 	}
 	
-	private String extractFromArrayToDouble(JSONObject source, String path) 
+	private String extractFromArrayToDouble(JSONArray source, String path) 
 	{
-		String name = path.substring(0, path.indexOf("["));
-		int index = Integer.parseInt(path.substring(path.indexOf("[")+1,
-				path.indexOf("]")));
-		return Double.toString( source.getJSONArray(name).getDouble(index));
+		return source.getSpecialString(path);
 	}
 	
-	private String extractFromArrayToString(JSONObject source, String path) 
+	private String extractFromArrayToString(JSONArray source, String path)
 	{
-		String name = path.substring(0, path.indexOf("["));
-		int index = Integer.parseInt(path.substring(path.indexOf("[")+1,
-				path.indexOf("]")));
-		return source.getJSONArray(name).getString(index);
+		System.out.println("extractFromArrayToString: " + path);
+		return source.getSpecialString(path);
 	}
 
 	private JSONObject extractFromArray(JSONObject source, String path) 
 	{
-		String name = path.substring(0, path.indexOf("["));
-		int index = Integer.parseInt(path.substring(path.indexOf("[")+1,
-				path.indexOf("]")));
-		return source.getJSONArray(name).getJSONObject(index);
+		System.out.println("extractFromArray: " + path);
+		return source.getSpecialJSONObject(path);
 	}
 
 	private JSONObject extractFromAnnoymousArray(String path) {
-		int index = Integer.parseInt(path.replace("[", "").replace("]", ""));
-		return root.getJSONObject(index);
+		System.out.println("extractFromAnnoymousArray: " + path);
+		return root.getSpecialJSONObject(path);
 	}
 
 	public String getResponseValue(String path, String type) {
-		String[] pathParts = path.split("\\.");
-		JSONObject jobj = null;
-		for (int index = 0; index < pathParts.length; index++) {
-			if (pathParts[index].contains("[")) {
-				if ((index == 0))
-					jobj = extractFromAnnoymousArray(pathParts[index]);
-				else if (index == pathParts.length - 1){
-					if (type.equalsIgnoreCase("string"))
-					  return extractFromArrayToString(jobj, pathParts[index]);
-					else if (type.equalsIgnoreCase("double"))
-					  return extractFromArrayToDouble(jobj, pathParts[index]);	
-				}
-				else
-					jobj = extractFromArray(jobj, pathParts[index]);
-			}else{
-				if (index == pathParts.length-1){
-					if (type.endsWith("string"))
-					return jobj.getString(pathParts[index]);
-					else if (type.equalsIgnoreCase("double"))
-						return Double.toString(jobj.getDouble(pathParts[index]));
-				}else
-					jobj = jobj.getJSONObject(pathParts[index]);
-			}
-		}
-		return "";
+		System.out.println(root);
+		if (type.equalsIgnoreCase("string"))
+		  return extractFromArrayToString(root, path);
+		else if (type.equalsIgnoreCase("double"))
+		  return extractFromArrayToDouble(root, path);
+		return "";	
 	}
 
 	public int getCourtCount() {

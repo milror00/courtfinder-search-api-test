@@ -51,7 +51,8 @@ public class CourtFinderSearchAPISteps {
 		}
 	}
 	
-	@Then("^the number of courts returned will be (\\d+)$")
+
+    @Then("^number of courts returned will be (\\d+)$")
 	public void the_number_of_courts_returned_will_be(int numberOfCourts) throws Throwable {
 		int actualNumberOfCourts = adapter.getCourtCount();
 		  
@@ -67,7 +68,7 @@ public class CourtFinderSearchAPISteps {
 				               path,expectedValue,actualValue),actualValue.equalsIgnoreCase(expectedValue));
 	}
 
-	@Then("^the a response code is (\\d+)$")
+	@Then("^the response code is (\\d+)$")
 	public void the_a_response_code_is(int expectedResponseCode) throws Throwable {
 		int actualResponseCode = adapter.getResponseCode();
 		assertTrue(String.format("Incorrect response code :\nExpected Value: %s\nActual Value: %s",

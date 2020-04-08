@@ -1,7 +1,7 @@
-@done  
+ @done  
 Feature: As a civilian I need to enter my postcode to find the closest court dealing with adoption so I can send in my application 
 
- 
+
 Scenario:  Search by postcode and locate my closest courts for Adoption
 
 
@@ -13,9 +13,9 @@ Scenario:  Search by postcode and locate my closest courts for Adoption
          |[0].name                    |Peterborough Combined Court Centre                      |string|
          |[0].address.town            |Peterborough                                            |string|
          |[0].address.address_lines[0]|Crown Buildings                                         |string|
-         |[0].address.address_lines[1]|Rivergate                                               |string|
-         |[0].lat                     |52.5698906045548                                        |double|
-         |[0].lon                     |-0.239916760135677                                      |double|  
+#         |[0].address.address_lines[1]|Rivergate                                               |string|
+#         |[0].lat                     |52.5698906045548                                        |double|
+#         |[0].lon                     |-0.239916760135677                                      |double|  
 
        
 Scenario:  Search by postcode and locate my closest court for Children
